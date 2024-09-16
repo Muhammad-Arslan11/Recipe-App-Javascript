@@ -1,0 +1,83 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+.navbar{
+    height: 5rem;
+    width: 100%;
+    background-color: #454135;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+} 
+.navbar .logo-heading{
+    margin-left: 25px;
+}
+.navbar .logo-heading h1{
+    font-size: 30px;
+    font-weight: bolder;
+    color: whitesmoke;
+}
+.navbar .search-area{
+    margin-right: 35px;
+    display: flex;
+}
+.navbar .search-area input{
+    height: 30px;
+    width: 16rem;
+    font-size: 20px;
+    padding: 3px;
+    border-radius: 5px;
+}
+.navbar .search-area .btn{
+    height: 36px;
+   background-color: rgb(161, 39, 39);
+    font-size: 20px;
+    padding: 1px;
+    margin-left:10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 70px;
+    color: whitesmoke;
+}
+
+.navbar .search-area .btn:hover{
+   cursor: pointer;
+   background-color: red;
+}
+
+
+.show-area{
+    height: 100vh;
+    width: 100%;
+    background-color: #8c5f1c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: auto; */
+}
+.show-area .card-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+   overflow-y: scroll;
+   height: 93vh;
+    width: 80%;
+    display: flex;
+    background-color: wheat;
+    
+  
+}
+.show-area .card-grid .card{
+    border-radius: 8px;
+    margin: 20px 0;
+    height: 26rem;
+    width: 17rem;
+    background-color:#c0b48f ;
+}
