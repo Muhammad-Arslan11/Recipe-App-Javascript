@@ -1,6 +1,7 @@
 
  const searchbtn = document.querySelector('.btn');
  const searchInput = document.querySelector('#search');
+ 
 
 
 
@@ -15,12 +16,45 @@
     }
 
     let data = await response.json();
-    console.log(data); // This will log the parsed JSON data
-    return data; // Optionally return the data if you need to use it outside the function
+    console.log(data.meals); // This will log the parsed JSON data
+ 
+
+    let cardGrid = document.querySelector(".card-grid");
+
+    // run a foreach loop on response
+     data.meals.forEach(meal => {
+      console.log(meal[0]);
+      // create a div
+      const card = document.createElement('div');
+    card.classList.add('card');
+     
+    
+    card.innerHTML = `
+    <div class="card-image">
+        <img src="${meal.strMealThumb}" height="265" width="271" alt="${meal.strMeal}">
+    </div>
+    <div class="card-desc">
+        <h3>${meal.strMeal}</h3>
+        <p class="text">${meal.strArea}</p>
+        <p class="text">${meal.strCategory}</p>
+    </div>
+    <button class="btn">view more</button>
+`;
+   cardGrid.appendChild(card);
+     });
+
   } catch (error) {
     console.error('Fetch error:', error);
     // Handle the error appropriately, such as showing an error message to the user
   }
+
+
+ 
+ 
+
+  
+
+  
 };
 
 
@@ -31,24 +65,7 @@ searchbtn.addEventListener("click", (e)=>{
    fetchData(query);
 } );
 
-// fuction to generate meal cards
- const generateCards = ()=>{
-  let cardGrid = document.querySelector(".card-grid");
-    cardGrid.innerHTML =  `
-    <div class="card">
-             <div class="card-image"></div>
-             <img src="" alt="">
-             <div class="card-desc">
-                 <h2>name</h2>
-                 <p>dish desc</p>
-                 <p>category</p>
-             </div>
-             <button>view more</button>
-         </div>
- `
-  return cardGrid;
-}
- generateCards();
+
 
 
 

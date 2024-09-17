@@ -6,6 +6,7 @@
 body {
     font-family: sans-serif;
     box-sizing: border-box;
+    overflow: hidden; /* Hide scrollbars */
 }
 .navbar{
     height: 5rem;
@@ -56,7 +57,7 @@ body {
 .show-area{
     height: 100vh;
     width: 100%;
-    background-color: #8c5f1c;
+    background-color: #212121;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,14 +71,56 @@ body {
    height: 93vh;
     width: 80%;
     display: flex;
-    background-color: wheat;
+   
     
   
 }
 .show-area .card-grid .card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
     border-radius: 8px;
     margin: 20px 0;
-    height: 26rem;
+       height: 29rem;
     width: 17rem;
-    background-color:#c0b48f ;
+    background-color: white;
+}
+
+.show-area .card-grid .card:hover{
+    cursor: pointer;
+}
+
+.show-area .card-grid .card .card-desc{
+    margin-top: 3px;
+    text-align: center;
+}
+
+.show-area .card-grid .card .card-desc h3{
+    font-size: 28px;
+    font-weight: bold;
+
+}
+
+.show-area .card-grid .card .card-desc .text{
+    font-weight: 600;
+    margin-top: 4px;
+    font-size: 22px;
+}
+
+.show-area .card-grid .card .btn {
+    text-align: center;
+    color: white;
+    background-color: rgb(161, 39, 39);
+    height: 36px;
+    width: 105px;
+    font-size: 19px;
+    border-radius: 6px;
+    margin-top: 30px;
+
+}
+
+.show-area .card-grid .card .btn:hover {
+    cursor: pointer;
+    background-color: red;
 }
