@@ -73,18 +73,33 @@ const fetchIngredients = (meal) => {
   return ingredients.join("<li>");
 };
 
+
+
 const showPopUp = (meal) => {
   const recipeBox = document.createElement("div");
   recipeBox.classList.add("recipe-box");
+
   recipeBox.innerHTML = `
+   <button class="recipe-box-btn"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+    <div class="ingredients-container">
     <h2>${meal.strMeal}</h2>
     <h3>Ingredients:</h3>
     <ul>
       <li>${fetchIngredients(meal)}</li>
     </ul>
-    <h3>Instructions:</h3>
-    <p>${meal.strInstructions}</p>
+    </div>
+   
   `;
+ 
+      //  WARNING: this is won't work!!!!
+      //  const recipeBoxBtn = document.querySelector(".recipe-box-btn");
+      //  recipeBoxBtn.addEventListener("click", ()=>{
+      //   removeRecipeBox(recipeBox);
+      //  });
+      //NOTE: Here, the recipeBoxBtn won't work because the element on which the listener is attached to has yet to
+      // be injected or appended into the parent element. The child element has been appended at line 109. 
+   
+ 
 
   const existingPopup = document.querySelector(".recipe-box");
   if (existingPopup) {
@@ -92,4 +107,14 @@ const showPopUp = (meal) => {
   }
 
   showArea.appendChild(recipeBox);
+
+    // this is not working!!!!
+    const recipeBoxBtn = document.querySelector(".recipe-box-btn");
+    recipeBoxBtn.addEventListener("click", ()=>{
+      if(recipeBox){
+        recipeBox.remove();
+      }
+    });
+ 
 };
+
