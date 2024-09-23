@@ -61,7 +61,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin: auto; */
+   flex-direction: column;
+}
+.show-area .instructions{
+    color: white;
+    margin-top: 20px;
 }
 .show-area .card-grid{
     display: flex;

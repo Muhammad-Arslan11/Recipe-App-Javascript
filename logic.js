@@ -34,18 +34,27 @@ const fetchData = async (query) => {
         button.textContent = "View Recipe";
         card.appendChild(button);
 
+        // here is the appropriate place to add hide instructions logic
+              // get instructions bar
+              const instructions = document.getElementById('instructions'); 
+             // remove instructions bar if search is valid
+             instructions.style.visibility = 'hidden';
+
         button.addEventListener("click", () => {
           showPopUp(meal);
         });
 
         cardGrid.appendChild(card);
+   
       });
-    } else {
-      cardGrid.innerHTML = "<p>No meals found. Try another search.</p>";
+    }
+    
+    else {
+      instructions.textContent = "No meals found. Try another search.";
     }
   } catch (error) {
     console.error("Fetch error:", error);
-    cardGrid.innerHTML = "<p>An error occurred. Please try again later.</p>";
+    instructions.innerHTML = "An error occurred. Please try again later.";
   }
 };
 
