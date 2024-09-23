@@ -3,6 +3,8 @@ const searchInput = document.querySelector("#search");
 const showArea = document.querySelector(".show-area");
 const cardGrid = document.querySelector(".card-grid");
 
+
+
 const fetchData = async (query) => {
   const apiUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
   try {
@@ -11,7 +13,9 @@ const fetchData = async (query) => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     let data = await response.json();
-
+   
+    // hide overflow of cardGrid
+//  cardGrid.style.overflow = "hidden";
     cardGrid.innerHTML = "";
 
     if (data.meals && data.meals.length > 0) {
@@ -44,8 +48,15 @@ const fetchData = async (query) => {
           showPopUp(meal);
         });
 
+        
         cardGrid.appendChild(card);
-   
+        showArea.appendChild(cardGrid);
+
+        // if(cardGrid){
+        //   cardGrid.classList.add("glass-effect"); // add some styles
+        //   // cardGrid.style.overflow = "visible";
+        //   }
+        
       });
     }
     
@@ -64,7 +75,7 @@ searchbtn.addEventListener("click", (e) => {
   if (query) {
     fetchData(query);
   } else {
-    cardGrid.innerHTML = "<p>Please enter a search term.</p>";
+    instructions.innerHTML = "Please enter a search term.";
   }
 });
 

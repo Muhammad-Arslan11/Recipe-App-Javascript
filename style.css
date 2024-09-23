@@ -75,10 +75,32 @@ body {
    height: 93vh;
     width: 80%;
     display: flex;
-   
-    
-  
+    margin-top: 30px;
 }
+
+.glass-effect {
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    
+    /* Glass-like background with transparency */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    
+    /* Backdrop blur effect */
+    backdrop-filter: blur(10px); /* Blur the background behind the element */
+    
+    /* Optional: Border and rounded corners */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Optional glass-like border */
+    border-radius: 15px; /* Rounded corners */
+
+    /* Optional: Subtle shadow for depth */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for a 3D effect */
+    
+    /* Optional: Text styling for better contrast */
+    color: white;
+    font-size: 1.2em;
+}
+
 .show-area .card-grid .card{
     display: flex;
     flex-direction: column;
